@@ -49,7 +49,6 @@ function thousands(userInput, test){
 function hundreds(userInput, test1){
   //second place
   var roman = '';
-  // alert(test1);
   if (userInput[test1] <= 3) {
     for (var i = userInput[test1]; i >0 ; i--) {
       roman += 'C';
@@ -107,42 +106,6 @@ function ones(userInput, test3){
   }
   return roman;
 }
-
-// function divByFive(userInput) {
-//   var roman = '';
-//   if (userInput % 1000 === 0) {
-//     var total =  userInput / 1000;
-//     for (var i = total; i > 0; i--) {
-//       roman += "M";
-//     }
-//   } else if (userInput % 500 === 0) {
-//     var total = userInput / 500;
-//     for (var i = total; i > 0; i--) {
-//       roman += "D";
-//     }
-//   } else if (userInput % 100 === 0) {
-//     var total = userInput / 100;
-//     for (var i = total; i > 0; i--) {
-//       roman += "C";
-//     }
-//   } else if (userInput % 50 === 0) {
-//     var total = userInput / 50;
-//     for (var i = total; i > 0; i--) {
-//       roman += "L";
-//     }
-//   } else if (userInput % 10 === 0) {
-//     var total = userInput / 10;
-//     for (var i = total; i > 0; i--) {
-//       roman += "X";
-//     }
-//   } else if (userInput % 5 === 0) {
-//     var total = userInput / 5;
-//     for (var i = total; i > 0; i--) {
-//       roman += "V";
-//     }
-//   }
-//   return roman;
-// }
 
 //User Interface
 $(document).ready(function(){
