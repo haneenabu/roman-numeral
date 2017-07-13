@@ -2,57 +2,113 @@
 
 
 function numToConvert(userInput){
+  var divides;
   if (isNaN(userInput)) {
     alert("You did not enter a number");
   } else if ((userInput < 0) || (userInput > 3999)){
     alert("Please enter a number between 1-3999")
-  } else if (userInput % 5 === 0){
-    var divides = divByFive(userInput);
+  } else if (userInput.length === 4){
+    divides = thousands(userInput);
     return divides;
-  } else if (userInput %5 < 3){
+  } else if (userInput %5 <= 3){
     return userInput;
   } else if (userInput % 5 > 3){
     return userInput;
   }
 }
 
-function divByFive(userInput) {
+function thousands(userInput){
   var roman = '';
-  if (userInput % 1000 === 0) {
-    var total =  userInput / 1000;
-    for (var i = total; i > 0; i--) {
-      roman += "M";
+  //for 1st place
+  for (var i = userInput[0]; i >0 ; i--) {
+    roman += 'M';
+  }
+  //second place
+  if (userInput[1] <= 3) {
+    for (var i = userInput[1]; i >0 ; i--) {
+      roman += 'C';
     }
-  } else if (userInput % 500 === 0) {
-    var total = userInput / 500;
-    for (var i = total; i > 0; i--) {
-      roman += "D";
+  }else if (userInput[1] === '4') {
+    roman += 'CD';
+  }else if (userInput[1] >= 5 && userInput[1] !== '9') {
+    roman += 'D';
+    var num = parseInt(userInput[1]) - 5;
+    for (var i = num; i >0; i--) {
+      roman += 'C';
     }
-  } else if (userInput % 100 === 0) {
-    var total = userInput / 100;
-    for (var i = total; i > 0; i--) {
-      roman += "C";
+  }else {
+    roman += 'CM';
+  }
+  //third place
+  if (userInput[2] <= 3) {
+    for (var i = userInput[2]; i >0 ; i--) {
+      roman += 'X';
     }
-  } else if (userInput % 50 === 0) {
-    var total = userInput / 50;
-    for (var i = total; i > 0; i--) {
-      roman += "L";
+  }else if (userInput[2] === '4') {
+    roman += 'XL';
+  }else if (userInput[2] >= 5 && userInput[2] !== '9') {
+    roman += 'L';
+    var num = parseInt(userInput[2]) - 5;
+    for (var i = num; i >0; i--) {
+      roman += 'X';
     }
-  } else if (userInput % 10 === 0) {
-    var total = userInput / 10;
-    for (var i = total; i > 0; i--) {
-      roman += "X";
+  }else {
+    roman += 'LC';
+  }
+  //fourth place
+  if (userInput[3] <= 3) {
+    for (var i = userInput[3]; i >0 ; i--) {
+      roman += 'I';
     }
-  } else if (userInput % 5 === 0) {
-    var total = userInput / 5;
-    for (var i = total; i > 0; i--) {
-      roman += "V";
+  }else if (userInput[3] === '4') {
+    roman += 'IV';
+  }else if (userInput[3] >= 5 && userInput[3] !== '9') {
+    roman += 'V';
+    var num = parseInt(userInput[3]) - 5;
+    for (var i = num; i >0; i--) {
+      roman += 'I';
     }
+  }else {
+    roman += 'IX';
   }
   return roman;
 }
 
-
+// function divByFive(userInput) {
+//   var roman = '';
+//   if (userInput % 1000 === 0) {
+//     var total =  userInput / 1000;
+//     for (var i = total; i > 0; i--) {
+//       roman += "M";
+//     }
+//   } else if (userInput % 500 === 0) {
+//     var total = userInput / 500;
+//     for (var i = total; i > 0; i--) {
+//       roman += "D";
+//     }
+//   } else if (userInput % 100 === 0) {
+//     var total = userInput / 100;
+//     for (var i = total; i > 0; i--) {
+//       roman += "C";
+//     }
+//   } else if (userInput % 50 === 0) {
+//     var total = userInput / 50;
+//     for (var i = total; i > 0; i--) {
+//       roman += "L";
+//     }
+//   } else if (userInput % 10 === 0) {
+//     var total = userInput / 10;
+//     for (var i = total; i > 0; i--) {
+//       roman += "X";
+//     }
+//   } else if (userInput % 5 === 0) {
+//     var total = userInput / 5;
+//     for (var i = total; i > 0; i--) {
+//       roman += "V";
+//     }
+//   }
+//   return roman;
+// }
 
 //User Interface
 $(document).ready(function(){
