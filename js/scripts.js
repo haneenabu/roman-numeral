@@ -2,11 +2,7 @@
 
 function numToConvert(userInput){
   var divides='';
-  if (isNaN(userInput)) {
-    alert("You did not enter a number");
-  } else if ((userInput < 0) || (userInput > 3999)){
-    alert("Please enter a number between 1-3999")
-  } else if (userInput.length === 4){
+  if (userInput.length === 4){
     var test = parseInt(userInput.length) -4;
     divides = thousands(userInput, test);
     var test1 = parseInt(userInput.length) -3;
@@ -110,9 +106,17 @@ function ones(userInput, test3){
 $(document).ready(function(){
   $("#converter").submit(function(event){
     var input = $("input#originNum").val();
-    var output = numToConvert(input);
-    $("#romanNum").text(output);
-    $("#result").show();
+    if (isNaN(input)) {
+      alert("You did not enter a number");
+    } else if ((input < 0) || (input > 3999)){
+      alert("Please enter a number between 1-3999");
+    } else {
+      var output = numToConvert(input);
+      $("#romanNum").text(output);
+      $("#result").show();
+    }
+
+
     event.preventDefault();
   });
 });

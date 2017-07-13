@@ -10,15 +10,13 @@ _This website will prompt the user for input of a number. It will then analyze t
 
 ## Specs
 
-* _The program does nothing to alphabetic characters_
-  * _Input: A_
-  * _Output: oops you did not enter a number_
-* _The program only converts numbers between 1 and 3999_
-  * _Input: 4090_
-  * _Output: oops you did not enter a number in the range_
+
 * _The program matches the known number_
   * _Input: 1, 5, 10, 50, 100, 500, 1,000_
   * _Output: return the numeral value_
+
+
+
 * _the program takes the input divides it by 5 find the remainder_
   * _Input: 5_
   * _Output: remainder is 1_
