@@ -1,8 +1,7 @@
 //Business logic
 
-
 function numToConvert(userInput){
-  var divides;
+  var divides='';
   if (isNaN(userInput)) {
     alert("You did not enter a number");
   } else if ((userInput < 0) || (userInput > 3999)){
@@ -10,20 +9,32 @@ function numToConvert(userInput){
   } else if (userInput.length === 4){
     var test = parseInt(userInput.length) -4;
     divides = thousands(userInput, test);
-
     var test1 = parseInt(userInput.length) -3;
     divides += hundreds(userInput, test1);
-
     var test2 = parseInt(userInput.length) -2;
     divides += tens(userInput, test2);
     var test3 = parseInt(userInput.length) -1;
     divides += ones(userInput, test3);
-    alert (divides);
     return divides;
-  } else if (userInput %5 <= 3){
-    return userInput;
-  } else if (userInput % 5 > 3){
-    return userInput;
+  } else if (userInput.length === 3) {
+    alert(divides);
+    var test1 = parseInt(userInput.length) -3;
+    divides += hundreds(userInput, test1);
+    var test2 = parseInt(userInput.length) -2;
+    divides += tens(userInput, test2);
+    var test3 = parseInt(userInput.length) -1;
+    divides += ones(userInput, test3);
+    return divides;
+  } else if (userInput.length === 2){
+    var test2 = parseInt(userInput.length) -2;
+    divides += tens(userInput, test2);
+    var test3 = parseInt(userInput.length) -1;
+    divides += ones(userInput, test3);
+    return divides;
+  } else if (userInput.length === 1){
+    var test3 = parseInt(userInput.length) -1;
+    divides += ones(userInput, test3);
+    return divides;
   }
 }
 
@@ -38,7 +49,7 @@ function thousands(userInput, test){
 function hundreds(userInput, test1){
   //second place
   var roman = '';
-  alert(test1);
+  // alert(test1);
   if (userInput[test1] <= 3) {
     for (var i = userInput[test1]; i >0 ; i--) {
       roman += 'C';
