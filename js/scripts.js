@@ -17,7 +17,6 @@ function numToConvert(userInput){
     divides += ones(userInput, test3);
     return divides;
   } else if (userInput.length === 3) {
-    alert(divides);
     var test1 = parseInt(userInput.length) -3;
     divides += hundreds(userInput, test1);
     var test2 = parseInt(userInput.length) -2;
@@ -82,7 +81,7 @@ function tens(userInput, test2){
       roman += 'X';
     }
   }else {
-    roman += 'LC';
+    roman += 'XC';
   }
   return roman;
 }
