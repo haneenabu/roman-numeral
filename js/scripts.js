@@ -1,6 +1,12 @@
 //Business logic
+function Hello() {
+  this.name = 'hello';
+}
+Hello.prototype.sayHi = function () {
+  return this.name;
+};
 
-function numToConvert(userInput){
+function NumToConvert(userInput){
   var divides='';
   if (userInput.length === 4){
     var test = parseInt(userInput.length) -4;
@@ -29,94 +35,77 @@ function numToConvert(userInput){
   } else if (userInput.length === 1){
     var test3 = parseInt(userInput.length) -1;
     divides += ones(userInput, test3);
-    return divides;
-  }
-}
 
-function thousands(userInput, test){
-  var roman = '';
-  //for 1st place
-  for (var i = userInput[test]; i >0 ; i--) {
-    roman += 'M';
   }
-  return roman;
-}
-function hundreds(userInput, test1){
-  //second place
-  var roman = '';
-  if (userInput[test1] <= 3) {
-    for (var i = userInput[test1]; i >0 ; i--) {
-      roman += 'C';
+  function thousands(userInput, test){
+    var roman = '';
+    //for 1st place
+    for (var i = userInput[test]; i >0 ; i--) {
+      roman += 'M';
     }
-  }else if (userInput[test1] === '4') {
-    roman += 'CD';
-  }else if (userInput[test1] >= 5 && userInput[test1] !== '9') {
-    roman += 'D';
-    var num = parseInt(userInput[test1]) - 5;
-    for (var i = num; i >0; i--) {
-      roman += 'C';
-    }
-  }else {
-    roman += 'CM';
+    return roman;
   }
-  return roman;
-}
-function tens(userInput, test2){
-  var roman = '';
-  //third place
-  if (userInput[test2] <= 3) {
-    for (var i = userInput[test2]; i >0 ; i--) {
-      roman += 'X';
+  function hundreds(userInput, test1){
+    //second place
+    var roman = '';
+    if (userInput[test1] <= 3) {
+      for (var i = userInput[test1]; i >0 ; i--) {
+        roman += 'C';
+      }
+    }else if (userInput[test1] === '4') {
+      roman += 'CD';
+    }else if (userInput[test1] >= 5 && userInput[test1] !== '9') {
+      roman += 'D';
+      var num = parseInt(userInput[test1]) - 5;
+      for (var i = num; i >0; i--) {
+        roman += 'C';
+      }
+    }else {
+      roman += 'CM';
     }
-  }else if (userInput[test2] === '4') {
-    roman += 'XL';
-  }else if (userInput[test2] >= 5 && userInput[test2] !== '9') {
-    roman += 'L';
-    var num = parseInt(userInput[test2]) - 5;
-    for (var i = num; i >0; i--) {
-      roman += 'X';
-    }
-  }else {
-    roman += 'XC';
+    return roman;
   }
-  return roman;
-}
-function ones(userInput, test3){
-  var roman = '';
-  //fourth place
-  if (userInput[test3] <= 3) {
-    for (var i = userInput[test3]; i >0 ; i--) {
-      roman += 'I';
+  function tens(userInput, test2){
+    var roman = '';
+    //third place
+    if (userInput[test2] <= 3) {
+      for (var i = userInput[test2]; i >0 ; i--) {
+        roman += 'X';
+      }
+    }else if (userInput[test2] === '4') {
+      roman += 'XL';
+    }else if (userInput[test2] >= 5 && userInput[test2] !== '9') {
+      roman += 'L';
+      var num = parseInt(userInput[test2]) - 5;
+      for (var i = num; i >0; i--) {
+        roman += 'X';
+      }
+    }else {
+      roman += 'XC';
     }
-  }else if (userInput[test3] === '4') {
-    roman += 'IV';
-  }else if (userInput[test3] >= 5 && userInput[test3] !== '9') {
-    roman += 'V';
-    var num = parseInt(userInput[test3]) - 5;
-    for (var i = num; i >0; i--) {
-      roman += 'I';
-    }
-  }else {
-    roman += 'IX';
+    return roman;
   }
-  return roman;
-}
-
-//User Interface
-$(document).ready(function(){
-  $("#converter").submit(function(event){
-    var input = $("input#originNum").val();
-    if (isNaN(input)) {
-      alert("You did not enter a number");
-    } else if ((input < 0) || (input > 3999)){
-      alert("Please enter a number between 1-3999");
-    } else {
-      var output = numToConvert(input);
-      $("#romanNum").text(output);
-      $("#result").show();
+  function ones(userInput, test3){
+    var roman = '';
+    //fourth place
+    if (userInput[test3] <= 3) {
+      for (var i = userInput[test3]; i >0 ; i--) {
+        roman += 'I';
+      }
+    }else if (userInput[test3] === '4') {
+      roman += 'IV';
+    }else if (userInput[test3] >= 5 && userInput[test3] !== '9') {
+      roman += 'V';
+      var num = parseInt(userInput[test3]) - 5;
+      for (var i = num; i >0; i--) {
+        roman += 'I';
+      }
+    }else {
+      roman += 'IX';
     }
-
-
-    event.preventDefault();
-  });
-});
+    return roman;
+  }
+   return divides;
+}
+exports.roman = NumToConvert;
+exports.pickles = Hello;

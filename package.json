@@ -1,0 +1,22 @@
+{
+  "name": "roman-numeral",
+  "version": "1.0.0",
+  "description": "#### _This site will translate numbers into Roman Numerals, {07.13.2017}_",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haneenabu/roman-numeral.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/haneenabu/roman-numeral/issues"
+  },
+  "homepage": "https://github.com/haneenabu/roman-numeral#readme",
+  "devDependencies": {
+    "jasmine": "^2.8.0"
+  }
+}
