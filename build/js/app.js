@@ -1,3 +1,4 @@
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 //Business logic
 // function Hello() {
 //   this.name = 'hello';
@@ -109,3 +110,24 @@ function NumToConvert(userInput){
 }
 exports.roman = NumToConvert;
 // exports.pickles = Hello;
+
+},{}],2:[function(require,module,exports){
+ var RomanConverter = require('./../js/scripts.js').roman;
+//User Interface
+$(document).ready(function(){
+  $("#converter").submit(function(event){
+    event.preventDefault();
+    var input = $("input#originNum").val();
+    if (isNaN(input)) {
+      alert("You did not enter a number");
+    } else if ((input < 0) || (input > 3999)){
+      alert("Please enter a number between 1-3999");
+    } else {
+      var output = RomanConverter(input);
+      $("#romanNum").text(output);
+      $("#result").show();
+    }
+  });
+});
+
+},{"./../js/scripts.js":1}]},{},[2]);

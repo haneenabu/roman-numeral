@@ -1,5 +1,5 @@
 var RomanConverter = require('./../js/scripts.js').roman;
-var homies = require('./../js/scripts.js').pickles;
+//var homies = require('./../js/scripts.js').pickles;
 
 describe('roman-numeral', function() {
 
@@ -50,6 +50,22 @@ describe('roman-numeral', function() {
   it('should test result for 90 as input', function(){
     var output = RomanConverter("90")
     expect(output).toEqual('XC')
+  });
+  it('should test result for 900 as input', function(){
+    var output = RomanConverter("900")
+    expect(output).toEqual('CM')
+  });
+  it('should test result for 2000 as input', function(){
+    var output = RomanConverter("2000")
+    expect(output).toEqual('MM')
+  });
+  it('should test result for 55 as input', function(){
+    var output = RomanConverter("55")
+    expect(output).toEqual('LV')
+  });
+  it('should test result for 57 as input', function(){
+    var output = RomanConverter("57")
+    expect(output).toEqual('LVII')
   });
   // it('should test result for 5 as input', function(){
   //   var output = new homies(4)
